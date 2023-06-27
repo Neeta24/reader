@@ -1,39 +1,8 @@
 import React from 'react'
-
-import Home from './components/Home'
-import About from './components/About'
-import ErrorPage from './components/ErrorPage'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Layout from './components/Layout'
-
-const router = createBrowserRouter([
-
-  {
-    path: '/',
-    element: <Layout></Layout>,
-    errorElement: <ErrorPage></ErrorPage>,
-    children:[
-      {
-        path: '/',
-        element: <Home></Home>,
-      
-      },
-      {
-        path: '/home',
-        element: <Home></Home>,
-      
-      },
-      {
-        path: '/about',
-        element: <About></About>,
-      
-      }
-    ]
-  
-  },
+import { RouterProvider} from 'react-router-dom'
+import {router} from 'Routes'
 
 
-])
 
 function App() {
   return(
