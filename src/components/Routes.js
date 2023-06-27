@@ -1,20 +1,24 @@
-import Home from './components/Home'
-import About from './components/About'
-import ErrorPage from './components/ErrorPage'
+
 import {createBrowserRouter } from 'react-router-dom'
-import Layout from './components/Layout'
+import Home from './Home'
+import ErrorPage from './ErrorPage';
+import Layout from './Layout';
+import About from './About';
+import Books from './Books';
 
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
 
     {
       path: '/',
       element: <Layout></Layout>,
-      errorElement: <ErrorPage></ErrorPage>,
+      errorElement: <ErrorPage>
+
+      </ErrorPage>,
       children:[
         {
           path: '/',
-          element: <Home></Home>,
+          element:<Home></Home> ,
         
         },
         {
@@ -26,6 +30,11 @@ export const router = createBrowserRouter([
           path: '/about',
           element: <About></About>,
         
+        },
+        {
+            path:'/books',
+            loader: ()=> fetch('https://api.itbook.store/1.0/new'),
+            element:<Books></Books>
         }
       ]
     
@@ -33,3 +42,5 @@ export const router = createBrowserRouter([
   
   
   ])
+
+  export default router;
